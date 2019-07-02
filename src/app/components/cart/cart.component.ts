@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
+import { Product } from "src/app/models/Product";
 
 @Component({
   selector: "app-cart",
@@ -6,12 +7,10 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./cart.component.css"]
 })
 export class CartComponent implements OnInit {
-  numbers: any[];
-  constructor() {
-    this.numbers = Array(10)
-      .fill(0)
-      .map((x, i) => i);
-  }
+  @Input() cart_items: Product[];
+  @Input() total_amount: any;
+
+  constructor() {}
 
   ngOnInit() {}
 }

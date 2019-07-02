@@ -4,11 +4,14 @@
   </div>
   <div class="main-content">
     <div class="content-left">
-      <app-cart></app-cart>
+      <app-cart
+        [cart_items]="cart_items"
+        [total_amount]="total_amount"
+      ></app-cart>
       <app-keypad></app-keypad>
     </div>
     <div class="content-right">
-      <app-products></app-products>
+      <app-products (onAddToCart)="addToCart($event)"></app-products>
     </div>
   </div>
 

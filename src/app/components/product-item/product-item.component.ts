@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 import { Product } from "src/app/models/Product";
 
 @Component({
@@ -8,6 +8,7 @@ import { Product } from "src/app/models/Product";
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
+  @Output() addToCart: EventEmitter<Product> = new EventEmitter();
 
   imgBaseUrl: string =
     "https://engrave.in/media/catalog/product/cache/1/small_image/256x/602f0fa2c1f0d1ba5e241f914e856ff9";
@@ -15,4 +16,8 @@ export class ProductItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  onAddToCart(product: Product) {
+    this.addToCart.emit(product);
+  }
 }

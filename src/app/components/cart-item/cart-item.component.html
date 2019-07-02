@@ -1,16 +1,14 @@
 <div class="orderline ">
   <span class="product-name">
-    Storage Box
+    {{ cart_item.name }}
   </span>
-  <span class="price">
-    ₹ 79.00
-  </span>
+  <span class="price"> ₹ {{ cart_item.price * cart_item.quantity }} </span>
   <ul class="info-list">
     <li class="info">
       <em>
-        1.000
+        {{ cart_item.quantity }}
       </em>
-      Unit(s) at ₹ 79.00 / Unit(s)
+      Unit(s) at ₹ {{ cart_item.price }} / Unit(s)
     </li>
   </ul>
 </div>

@@ -1,6 +1,6 @@
 <div class="cart" id="style-3" #scrollMe [scrollTop]="scrollMe.scrollHeight">
   <div class="order">
-    <!-- <div class="order-empty">
+    <div class="order-empty" *ngIf="!total_amount">
       <i
         aria-label="Shopping cart"
         class="fa fa-shopping-cart"
@@ -8,12 +8,16 @@
         title="Shopping cart"
       ></i>
       <h1>Your shopping cart is empty</h1>
-    </div> -->
-    <app-cart-item *ngFor="let number of numbers"></app-cart-item>
-    <div class="summary">
+    </div>
+    <app-cart-item
+      *ngFor="let cart_item of cart_items"
+      [cart_item]="cart_item"
+    ></app-cart-item>
+    <div class="summary" *ngIf="total_amount">
       <div class="line">
         <div class="entry total">
-          <span class="badge">Total: </span> <span class="value">₹ 550.10</span>
+          <span class="badge">Total: </span>
+          <span class="value">₹ {{ total_amount }}</span>
           <div class="subentry">Taxes: <span class="value">₹ 0.00</span></div>
         </div>
       </div>

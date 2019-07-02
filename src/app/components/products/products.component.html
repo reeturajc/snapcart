@@ -1,15 +1,5 @@
 <div>
   <div class="product-header">
-    <!-- <div class="product-search">
-      <input
-        type="search"
-        id="searchItem"
-        name="searchItem"
-        placeholder="Search products..."
-        [(ngModel)]="searchItem"
-        (keyup)="onSearch(searchItem)"
-      />
-    </div> -->
     <div class="searchbox">
       <input
         type="search"
@@ -26,6 +16,7 @@
     <app-product-item
       *ngFor="let product of products"
       [product]="product"
+      (addToCart)="addToCart($event)"
     ></app-product-item>
   </div>
 </div>
